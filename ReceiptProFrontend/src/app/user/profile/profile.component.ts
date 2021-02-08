@@ -1,0 +1,20 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
+
+@Component({
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
+})
+export class ProfileComponent{
+  isEditable:boolean = false;
+  details= []
+  constructor(private userDetails:ApiService, private router:Router) { }
+  callBack(response:any) {
+    this.details.push(response[0])
+    console.log(this.details)
+  }
+
+  status = this.userDetails.getUserDetails().subscribe(response=> this.callBack(response),error=>console.log(error))
+}

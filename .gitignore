@@ -1,0 +1,8 @@
+db.sqlite3
+env/
+.idea/
+app/migrations/
+api/migrations/
+api/__pycache__/
+app/__pycache__/
+ReceiptProBackend/__pycache__/

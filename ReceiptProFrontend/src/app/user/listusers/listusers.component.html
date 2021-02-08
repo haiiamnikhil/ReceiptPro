@@ -1,0 +1,57 @@
+<app-topnav></app-topnav>
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800 text-center">Users</h1>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTable</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive" *ngFor="let user of users">
+        <table
+          class="table table-bordered text-center"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr class="text-muted">
+              <th>Image</th>
+              <th>Name</th>
+              <th>Emp ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Team Lead</th>
+              <th>Role</th>
+              <th>Login Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of user; let i = index">
+              <td>
+                <div class="avatar">
+                  <img
+                    src="assets/img/faces/ayo-ogunseinde-2.jpg"
+                    class="img-circle img-no-padding img-responsive"
+                  />
+                </div>
+              </td>
+              <td>{{ person.first_name }} {{ person.last_name }}</td>
+              <td>{{person.emp_id}}</td>
+              <td>{{ person.username }}</td>
+              <td>{{ person.email }}</td>
+              <td>{{ person.phone }}</td>
+              <td>{{ person.team_lead_name }}</td>
+              <td>{{person.employ_designation}}</td>
+              <td [class.text-success]="person.is_active" [class.text-danger]="!person.is_active">{{person.is_active}}</td>
+              <td><button type="button" class="btn btn-primary" (click)="onSelect(person)">I</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="users.length"></ngb-pagination> -->
+      </div>
+    </div>
+  </div>
+</div>

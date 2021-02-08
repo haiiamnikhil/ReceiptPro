@@ -1,0 +1,178 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-11">
+        <form (submit)="registerUser()">
+            <div class="form-group">
+                <h3>Personal Information</h3>
+            </div>
+            <hr />
+            <div class="row py-4">
+                <div class="col-lg-6 mx-auto">
+                    <!-- Upload image input-->
+                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                        <input  type="file" (change)="getFile($event);" class="form-control border-0 upload" />
+                        <label  for="upload" class="font-weight-light text-muted upload-label">Choose file</label>
+                        <div class="input-group-append">
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
+                                <i class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                    type="file" class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="first_name" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="last_name" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        [(ngModel)]="email" />
+                    <small id="emailHelp" class="form-text text-muted">Your Email must be unique. We'll let you know if
+                        someone has taken
+                        it already.</small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username"
+                        aria-describedby="usernameHelp" (focus)="generateUsername()" value="{{ user_name }}"
+                        [(ngModel)]="username" readonly />
+                    <small id="usernameHelp" class="form-text text-muted">Your username must be unique. We'll let you
+                        know if someone has
+                        taken it already</small>
+                    <input type="hidden" name="username" value="{{ user_name }}" [(ngModel)]="username" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="confirmpass">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmpass" value="{{ password }}" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Gender</label>
+                    <select class="form-control" name="gender" [(ngModel)]="gender">
+                        <option selected>Choose...</option>
+                        <option>MALE</option>
+                        <option>FEMALE</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="reportingto">Reporting to</label>
+                    <input type="text" name="team_lead_name" [(ngModel)]="team_lead_name" class="form-control" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="employid">Employee ID</label>
+                    <input type="text" name="emp_id" [(ngModel)]="emp_id" class="form-control" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="companyworker">Company Worker</label>
+                    <select class="form-control" [(ngModel)]="company_worker_id" name="company_worker_id">
+                        <option selected>Choose...</option>
+                        <option>Binoj</option>
+                    </select>
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                <h3>Department Info</h3>
+            </div>
+            <hr />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Department</label>
+                    <select class="form-control" name="employ_department" [(ngModel)]="employ_department">
+                        <option selected>Choose...</option>
+                        <option>SDU</option>
+                        <option>BPO</option>
+                        <option>AI</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phone">Designation</label>
+                    <select class="form-control" name="employ_designation" [(ngModel)]="employ_designation">
+                        <option selected>Choose...</option>
+                        <option>Ai</option>
+                        <option>Web</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Role</label>
+                    <select class="form-control" name="employ_role" [(ngModel)]="employ_role">
+                        <option selected>Choose...</option>
+                        <option>Admin</option>
+                        <option>CEO</option>
+                        <option>COO</option>
+                        <option>HR</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="joined-date">Joined Date</label>
+                    <input type="date" name="date_joined" [(ngModel)]="date_joined" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="shift-no">Shift No</label>
+                    <select class="form-control" name="shift_id" [(ngModel)]="shift_id">
+                        <option selected>Choose...</option>
+                        <option>Morning</option>
+                        <option>Afternoon</option>
+                        <option>Night</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="team-lead">Team Lead</label>
+                    <select class="form-control" name="team_lead_name" [(ngModel)]="team_lead_name">
+                        <option selected>Choose...</option>
+                        <option>TL 1</option>
+                        <option>TL 2</option>
+                        <option>TL 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="shift-no">User Status</label>
+                    <select class="form-control" name="gender" [(ngModel)]="gender">
+                        <option selected>Choose...</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>Resigned</option>
+                        <option>Admin</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="team-lead">Appointment Status</label>
+                    <select class="form-control" name="appointment_status" [(ngModel)]="appointment_status">
+                        <option selected>Choose...</option>
+                        <option>Permenent</option>
+                        <option>Probation</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <br />
+
+        <hr />
+        <div class="text-center">
+            Do you already have an account? <a routerLink="/login">Login here</a>
+        </div>
+    </div>
+</div>
