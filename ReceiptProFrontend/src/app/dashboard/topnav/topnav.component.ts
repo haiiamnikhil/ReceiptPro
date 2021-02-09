@@ -22,7 +22,7 @@ export class TopnavComponent{
     this.viewModeState = !this.viewModeState
   }
 
-  presentUser =  this.service.getPresentUser().subscribe(user => this.getUserName(user[0]))
+  presentUser =  this.service.getPresentUser().subscribe(user => this.getUserName(user))
   
 
   onSelect(names:any){

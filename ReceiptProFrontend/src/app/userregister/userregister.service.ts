@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserregisterService {
   // private baseUrl = 'http://127.0.0.1:8000';
-  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+  httpHeaders = new HttpHeaders({'Content-Type': 'multipart/form-data'})
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +15,8 @@ export class UserregisterService {
     return this.http.get('/register/',{headers:this.httpHeaders})
   }
   
-  register(details: any): Observable<any>{
-    return this.http.post('/register/', details,{headers: this.httpHeaders})
+  register(data): Observable<any>{
+    return this.http.post('/registerform/', data)
   }
 
 }

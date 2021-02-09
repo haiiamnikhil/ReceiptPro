@@ -3,7 +3,8 @@ from django.conf.urls import url
 from .views import *
 
 urlpatterns = [
-    path('register/',registerUser, name = 'register'),
+    path('register/',userRegestrationsView, name = 'register'),
+    path('registerform/',registerUser,name = 'registerform'),
     path('login/',userLogin, name = 'login'),
     path('details/',userDetails,name = 'details'),
     path('user/dashboard/',userDashboard,name = 'dashboard'),
@@ -14,6 +15,5 @@ urlpatterns = [
     path('listuserview/',ListUsersView,name = 'listusers'),
     path('isSameUser/',checkUser,name='isSameUser'),
     path('emp-profile/<str:username>/',employeeprofile,name='userProfileView'),
-    path('emp-profile/view/<str:username>/',employeeprofiledetails,name='userProfileView'),
-    path('api/uploadimage/',uploadUserProfileImage,name = 'uploadImage')
+    path('emp-profile/view/<str:username>/',employeeprofiledetails,name='userProfileView')
 ]

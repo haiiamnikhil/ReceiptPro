@@ -12,8 +12,7 @@ export class ProfileComponent{
   details= []
   constructor(private userDetails:ApiService, private router:Router) { }
   callBack(response:any) {
-    this.details.push(response[0])
-    console.log(this.details)
+    this.details.push(response)
   }
 
   status = this.userDetails.getUserDetails().subscribe(response=> this.callBack(response),error=>console.log(error))

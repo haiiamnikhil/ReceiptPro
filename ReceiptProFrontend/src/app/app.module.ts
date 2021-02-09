@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserregisterComponent } from './userregister/userregister.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserregisterService } from './userregister/userregister.service';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { ApiService } from './api.service';
@@ -42,6 +42,7 @@ import { FileuploaderComponent } from './work/fileuploader/fileuploader.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [UserregisterService,ApiService,AuthenticationService,AdminGuard],
   bootstrap: [AppComponent]

@@ -3,8 +3,10 @@ from app.models import *
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
+
 class UserRegister(serializers.ModelSerializer):
-    profile_image = serializers.ImageField()
+    profile_image = serializers.FileField()
+    
     class Meta:
         model = UserModel
         fields = [
@@ -14,7 +16,6 @@ class UserRegister(serializers.ModelSerializer):
             'last_name',
             'email',
             'gender',
-            'profile_image'
         ]
         
     def create(self, validated_data):

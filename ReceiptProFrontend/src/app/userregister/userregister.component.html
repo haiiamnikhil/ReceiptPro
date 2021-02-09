@@ -1,32 +1,23 @@
 <div class="row justify-content-center mt-5">
-    <div class="col-md-11">
-        <form (submit)="registerUser()">
+    <div class="col-md-10">
+        <form (submit)="registerUser()" enctype="multipart/form-data">
             <div class="form-group">
                 <h3>Personal Information</h3>
             </div>
             <hr />
-            <div class="row py-4">
-                <div class="col-lg-6 mx-auto">
-                    <!-- Upload image input-->
-                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                        <input  type="file" (change)="getFile($event);" class="form-control border-0 upload" />
-                        <label  for="upload" class="font-weight-light text-muted upload-label">Choose file</label>
-                        <div class="input-group-append">
-                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
-                                <i class="fa fa-cloud-upload mr-2 text-muted"></i><small
-                                    type="file" class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Profile Image</label>
+                <input type="file" class="form-control-file" name="profile_image" (change)="getFile($event)">
+              </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="firstname">First Name</label>
-                    <input type="text" class="form-control" name="firstname" [(ngModel)]="first_name" />
+                    <input type="text" class="form-control" name="first_name" [(ngModel)]="first_name" />
                 </div>
                 <div class="form-group col-md-6">
                     <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" name="lastname" [(ngModel)]="last_name" />
+                    <input type="text" class="form-control" name="last_name" [(ngModel)]="last_name" />
                 </div>
             </div>
 
@@ -57,7 +48,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="confirmpass">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirmpass" value="{{ password }}" />
+                    <input type="password" class="form-control" name="confirmpassword" [(ngModel)]="confirmpassword" />
                 </div>
             </div>
             <div class="form-row">

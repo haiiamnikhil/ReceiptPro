@@ -14,6 +14,7 @@ export class UserregisterComponent{
 
   username: string
   password:string
+  confirmpassword:string
   email:string;
   first_name:string
   last_name:string
@@ -31,8 +32,10 @@ export class UserregisterComponent{
   appointment_status:string
   user_name:any
   errors:any
-  image:File
+  profile_image:File
   users = []
+
+
   generateUsername(){
     this.user_name = this.email.split("@",1)
     this.username = this.user_name.toString()
@@ -55,23 +58,21 @@ export class UserregisterComponent{
 
   getFile(event:any){
     if (event.target.files.length > 0){
-      const file = event.target.files[0]
-      this.image = file
-      console.log(this.image)
+      this.profile_image = event.target.files[0]
+      console.log(this.profile_image)
     }
   }
 
   registerUser(){
-    let details = {
-      username:this.username,
-      password:this.password,
-      email:this.email,
-      first_name:this.first_name,
-      last_name:this.last_name,
-      gender:this.gender,
-      profile_image:this.image
-    }
-    console.log(details.profile_image)
-    this.service.register(details).subscribe(data => this.callbacks(data),error => console.log(error));
+    const uploadData = new FormData();
+    uploadData.append('profile_image',this.profile_image,this.profile_image.name)
+    uploadData.append("username",this.username)
+    uploadData.append("password",this.password)
+    uploadData.append("email",this.email)
+    uploadData.append("first_name",this.first_name)
+    uploadData.append("last_name",this.last_name)
+    uploadData.append("gender",this.gender)
+    console.log(uploadData)
+    this.service.register(uploadData).subscribe(data => this.callbacks(data),error => console.log(error));
   }
 }
