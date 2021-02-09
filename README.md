@@ -12,3 +12,6 @@ How to Clone and Work With Receipt Pro
    (wait for the instalation to get complete)
 5. Now setup the server using "py manage.py runserver".
 "# ReceiptPro-2.0" 
+
+
+ng build --prod --output-path ../static/assets/angular --watch --output-hashing none
