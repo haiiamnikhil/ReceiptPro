@@ -12,7 +12,7 @@ from django.contrib.auth.hashers import make_password
 
 
 @csrf_exempt
-def registerUser(request):
+def userRegisterForm(request):
     if request.method == 'POST':
         user = UserModel.objects.create(username=request.POST.get('username'),
                                         password=make_password(
@@ -32,7 +32,7 @@ def userRegestrationsView(request):
 
 
 @csrf_exempt
-def userLogin(request):
+def userLoginForm(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
         user = authenticate(
@@ -44,11 +44,14 @@ def userLogin(request):
             return JsonResponse({"message": "Login SuccessFull", "login_status": True, "user": request.user.username}, safe=False, status=200)
         else:
             return JsonResponse({"message": "Entered Credentials is Incorrect", "login_status": False}, safe=False, status=200)
+
+@csrf_exempt
+def userLoginView(request):
     return render(request, 'login.html')
 
 
 @csrf_exempt
-def userDetails(request):
+def selfUserProfile(request):
     if request.method == 'GET':
         details = UserModel.objects.filter(username=request.user)
         serializer = UserProfile(details, many=True)
@@ -58,11 +61,8 @@ def userDetails(request):
         return JsonResponse({'is_user': is_user}, safe=False, status=200)
 
 
-@csrf_exempt
-def specificUser(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request)
-        user = UserModel.objects.get(username=data['username'])
+def selfUserProfileView(request, username):
+    return render(request, "profile.html")
 
 
 @csrf_exempt
@@ -75,44 +75,18 @@ def userDashboard(request):
     return render(request, "dashboard.html")
 
 
-def userProfile(request, username):
-    return render(request, "profile.html")
-
-
-def userRenderView(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request)
-        print(data)
-        serializer = UserProfileView(data, many=True)
-        return JsonResponse(list(serializer.data), safe=False, status=200)
-    else:
-        return JsonResponse(list("user"), safe=False, status=200)
-
-
-def employeeprofile(request, username):
+def employeeProfileView(request, username):
     user = UserModel.objects.get(username=username)
     return render(request, "employeeprofile.html")
 
 
 @csrf_exempt
-def employeeprofiledetails(request, username):
+def employeeProfile(request, username):
     if request.method == 'POST':
         user = UserModel.objects.filter(username=username)
         print(user)
         serializer = UserProfileView(user, many=True)
         return JsonResponse(list(serializer.data), safe=False, status=200)
-
-
-@csrf_exempt
-def logoutUser(request):
-    if request.method == 'POST':
-        logout(request)
-        return JsonResponse({"success": True}, safe=False, status=200)
-
-
-@csrf_exempt
-def listUsers(request):
-    return render(request, "listuser.html")
 
 
 @csrf_exempt
@@ -123,3 +97,14 @@ def ListUsersView(request):
         return JsonResponse(list(serializer.data), safe=False, status=200)
     else:
         pass
+
+
+def listUsers(request):
+    return render(request, "listuser.html")
+
+
+@csrf_exempt
+def logoutUser(request):
+    if request.method == 'POST':
+        logout(request)
+        return JsonResponse({"success": True}, safe=False, status=200)

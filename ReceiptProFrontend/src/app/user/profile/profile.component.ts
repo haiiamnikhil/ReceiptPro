@@ -8,9 +8,11 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent{
-  isEditable:boolean = false;
+
+
   details= []
   constructor(private userDetails:ApiService, private router:Router) { }
+
   callBack(response:any) {
     this.details.push(response)
   }

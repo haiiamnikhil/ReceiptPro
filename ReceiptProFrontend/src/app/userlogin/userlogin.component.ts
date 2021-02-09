@@ -12,8 +12,7 @@ export class UserloginComponent{
   password:string
   login_status:boolean
   err:string
-  test:any;
-  user = []
+ 
   public currentUser:string
   constructor(private login: ApiService, private router:Router) { }
 

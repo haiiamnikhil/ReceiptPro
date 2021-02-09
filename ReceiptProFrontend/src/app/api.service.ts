@@ -11,11 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   loginUser(user:any):Observable<any> {
-    return this.http.post('/login/', user,{headers: this.httpHeaders})
-  }
-
-  getSpecificUserDetails(user:any):Observable<any> {
-    return this.http.post('/user/profile/user/',user,{headers: this.httpHeaders})
+    return this.http.post('/loginform/', user,{headers: this.httpHeaders})
   }
 
   getUserDetails():Observable<any>{
@@ -33,10 +29,6 @@ export class ApiService {
   getPresentUser():Observable<any>{
     return this.http.get('/details/',{headers: this.httpHeaders})
   }
-  
-  listUserview():Observable<any>{
-    return this.http.get('/listuser/',{headers: this.httpHeaders})
-  }
 
   getAllUsers():Observable<any>{
     return this.http.get('/listuserview/',{headers: this.httpHeaders})
@@ -46,7 +38,7 @@ export class ApiService {
     return this.http.get('/isSameUser/',{headers: this.httpHeaders})
   }
 
-  getEmpDetails(username):Observable<any>{
+  getEmpDetails(username:any):Observable<any>{
     return this.http.post('/emp-profile/view/'+username+'/',{headers: this.httpHeaders})
   }
 }

@@ -16,8 +16,7 @@ export class EmployeeprofileComponent{
     this.isEditable = true;
   }
 
-  presnetUser = this.api.isSamePresentUser().subscribe(response=> {if(this.activeroute.snapshot.paramMap.get('username') == response){this.presentUserResponse()}else{console.log("Different User")}},error=>console.log(error))
+  presnetUser = this.api.isSamePresentUser().subscribe(response=> {if(this.activeroute.snapshot.paramMap.get('username') == response){this.presentUserResponse()}},error=>console.log(error))
   getUser = this.api.getEmpDetails(this.activeroute.snapshot.paramMap.get('username'))
             .subscribe(response =>this.userDetails.push(response), error =>console.log(error));
-
 }

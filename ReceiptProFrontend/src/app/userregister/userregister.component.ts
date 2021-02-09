@@ -33,16 +33,13 @@ export class UserregisterComponent{
   user_name:any
   errors:any
   profile_image:File
+  
   users = []
 
 
   generateUsername(){
     this.user_name = this.email.split("@",1)
     this.username = this.user_name.toString()
-  }
-
-  listUsers(){
-    this.service.listUsers().subscribe(data =>this.users=data)
   }
 
   callbacks(response:any){

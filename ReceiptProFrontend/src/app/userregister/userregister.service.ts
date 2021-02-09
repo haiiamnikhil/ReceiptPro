@@ -11,12 +11,7 @@ export class UserregisterService {
 
   constructor(private http: HttpClient) { }
 
-  listUsers():Observable<any>{
-    return this.http.get('/register/',{headers:this.httpHeaders})
-  }
-  
-  register(data): Observable<any>{
+  register(data:any): Observable<any>{
     return this.http.post('/registerform/', data)
   }
-
 }
