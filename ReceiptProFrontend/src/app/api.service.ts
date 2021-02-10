@@ -41,4 +41,8 @@ export class ApiService {
   getEmpDetails(username:any):Observable<any>{
     return this.http.post('/emp-profile/view/'+username+'/',{headers: this.httpHeaders})
   }
+
+  uploadData(data:any):Observable<any>{
+    return this.http.post('/fileupload/upload/doc/',data)
+  }
 }

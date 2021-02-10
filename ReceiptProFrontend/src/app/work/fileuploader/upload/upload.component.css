@@ -1,0 +1,47 @@
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pt-25 {
+    padding-top: 25px!important;
+}
+
+.m-t-40 {
+    margin-top: 40px;
+}
+
+.card-box {
+    padding: 20px;
+    border: 1px solid rgba(54,64,74,.05);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 34px 90px 0 rgb(0 0 0 / 7%);
+}
+
+.dm-uploader {
+    border: 0.15rem dashed #ddd;
+    text-align: center;
+    padding: 100px !important;
+}
+
+.dm-uploader .btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.dm-uploader {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

@@ -20,6 +20,8 @@ import { ChartComponent } from './chart/chart.component';
 import { ListusersComponent } from './user/listusers/listusers.component';
 import { EmployeeprofileComponent } from './user/employeeprofile/employeeprofile.component';
 import { FileuploaderComponent } from './work/fileuploader/fileuploader.component';
+import { UploadComponent } from './work/fileuploader/upload/upload.component';
+import { WorkassignComponent } from './work/workassign/workassign.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { FileuploaderComponent } from './work/fileuploader/fileuploader.componen
     ChartComponent,
     ListusersComponent,
     EmployeeprofileComponent,
-    FileuploaderComponent
+    FileuploaderComponent,
+    UploadComponent,
+    WorkassignComponent
   ],
   imports: [
     HttpClientModule,

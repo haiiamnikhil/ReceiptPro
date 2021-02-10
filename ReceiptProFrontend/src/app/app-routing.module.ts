@@ -7,6 +7,8 @@ import { ListusersComponent } from './user/listusers/listusers.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component';
+import { FileuploaderComponent } from './work/fileuploader/fileuploader.component';
+import { UploadComponent } from './work/fileuploader/upload/upload.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,14 @@ const routes: Routes = [
   {
     path: 'login',
     component:UserloginComponent
+  },
+  {
+    path:'fileupload',
+    component:FileuploaderComponent
+  },
+  {
+    path:'fileupload/upload',
+    component:UploadComponent
   },
   {
     path:'user/dashboard',

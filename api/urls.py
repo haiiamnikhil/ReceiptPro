@@ -23,5 +23,9 @@ urlpatterns = [
     path('emp-profile/<str:username>/',employeeProfileView,name='userProfileView'),
     path('emp-profile/view/<str:username>/',employeeProfile,name='userProfileView'),
     
+    path('fileupload/',fileUploadView,name = 'fileuploadhome'),
+    path('fileupload/upload',fileUploadForm,name = 'fileuploadform'),
+    path('fileupload/upload/doc/',uploadFile,name = 'upload'),
+    
     path('logout/',logoutUser,name = 'logout')
 ]

@@ -108,3 +108,18 @@ def logoutUser(request):
     if request.method == 'POST':
         logout(request)
         return JsonResponse({"success": True}, safe=False, status=200)
+
+
+def fileUploadView(request):
+    return render(request, "fileupload.html")
+
+@csrf_exempt
+def fileUploadForm(request):
+    return render(request, "uploadform.html")
+
+@csrf_exempt
+def uploadFile(request):
+    if request.method == 'POST':
+        fileupload = UploadedDocument.objects.create(uploaded_by=request.user,doc_type=request.POST.get('doc_type'),files=request.FILES.get('file'))
+        return JsonResponse({"success": True},status=200,safe=False)
+              

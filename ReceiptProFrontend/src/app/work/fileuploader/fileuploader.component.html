@@ -1,1 +1,58 @@
-<p>fileuploader works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card text-center justify-content-center shaodw-lg card-1 border-0 bg-white px-sm-2">
+                <div class="card-body show ">
+                    <div class="row">
+                        <div class="col">
+                            <h5><b>Next up</b></h5>
+                            <p> What are you reporting ? <span class=" ml-1 cursor-pointer"> Learn more</span> </p>
+                        </div>
+                    </div>
+                    <div class="radio-group row justify-content-between px-3 text-center a">
+                        <div class="col-auto mr-sm-2 mx-1 card-block py-0 text-center radio"  (click)="viewMode = 'RSD'"  [class.selected]="viewMode == 'RSD'">
+                            <div class="flex-row">
+                                <div class="col">
+                                    <div class="pic"> <img class="irc_mut img-fluid" src="../static/extra/receipt.png" width="100" height="100"> </div>
+                                    <p>RSD</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto ml-sm-2 mx-1 card-block py-0 text-center radio" (click)="viewMode = 'UPC'"  [class.selected]="viewMode == 'UPC'">
+                            <div class="flex-row">
+                                <div class="col">
+                                    <div class="pic"> <img class="irc_mut img-fluid" src="../static/extra/receipt.png" width="100" height="100"> </div>
+                                    <p>UPC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto ml-sm-2 mx-1 card-block py-0 text-center radio" (click)="viewMode = 'UPC-RSD'"  [class.selected]="viewMode == 'UPC-RSD'">
+                            <div class="flex-row">
+                                <div class="col">
+                                    <div class="pic"> <img class="irc_mut img-fluid" src="../static/extra/receipt.png" width="100" height="100"> </div>
+                                    <p>UPC-RSD</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto ml-sm-2 mx-1 card-block py-0 text-center radio" (click)="viewMode = 'RIN'"  [class.selected]="viewMode == 'RIN'">
+                            <div class="flex-row">
+                                <div class="col">
+                                    <div class="pic"> <img class="irc_mut img-fluid" src="../static/extra/receipt.png" width="100" height="100"> </div>
+                                    <p>RIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto ml-sm-2 mx-1 card-block py-0 text-center radio" (click)="viewMode = 'RIN-RSD'"  [class.selected]="viewMode == 'RIN-RSD'">
+                            <div class="flex-row">
+                                <div class="col">
+                                    <div class="pic"> <img class="irc_mut img-fluid" src="../static/extra/receipt.png" width="100" height="100"> </div>
+                                    <p>RIN-RSD</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,10 +2,10 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" [class.toggled]="sidebarToggle">
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+            <div class="sidebar-brand-icon">
+                <img src="../static/logo/logo.png" alt="ReceiptPro" width=100%>
             </div>
-            <div class="sidebar-brand-text mx-3">Receipt Pro</div>
+            <!-- <div class="sidebar-brand-text mx-3">Receipt Pro</div> -->
         </a>
 
         <!-- Divider -->
@@ -26,16 +26,16 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <a class="nav-link" (click)="change = !change" [class.collapsed]="change" href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+                <span>Upload</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="collapse" [class.show]="!change" [class.hide]="change" >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <a class="collapse-item" routerLink="/fileupload/upload">Upload Files</a>
+                    <a class="collapse-item">Assign Work</a>
                 </div>
             </div>
         </li>

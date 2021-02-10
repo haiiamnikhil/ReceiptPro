@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent{
-
+  change:boolean = true;
   constructor() { }
 
   sidebarToggle:boolean = false;
