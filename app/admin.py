@@ -33,6 +33,9 @@ class AppointmentAdmin(admin.ModelAdmin):
 class EmployeeRoleAdmin(admin.ModelAdmin):
     list_display = ('pk','roles')
 
+class ReceiptDataAdmin(admin.ModelAdmin):
+    list_display = ('pk','receipt_id','transcription_type','banner_id','item_type','qty','total','rejection_reason','worker_id','image','inserted_on','uploaded_on')
+
 admin.site.register(UserModel, UserModelAdmin)
 admin.site.register(Department)
 admin.site.register(Designation, DepartmentAdmin)
@@ -42,3 +45,4 @@ admin.site.register(ActiveUser, ActiveUserAdmin)
 admin.site.register(IndividualWorkAnalysis, IndividualWorkAnalysisAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(EmployeeRole,EmployeeRoleAdmin)
+admin.site.register(ReceiptData, ReceiptDataAdmin)

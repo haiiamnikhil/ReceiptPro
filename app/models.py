@@ -15,6 +15,11 @@ DOCTYPES_CHOICES = [
     ('RIN-RSD', 'RIN-RSD')
 ]
 
+ITEM_TYPE_CHOICES =[
+    ('item','Item'),
+    ('coupon','Coupon')
+]
+
 
 class CompanyWorker(models.Model):
     employ_id = models.CharField(max_length=20, blank=True)
@@ -50,6 +55,9 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.status
+
+class BannerId(models.Model):
+    banner = models.CharField(max_length=100,unique=True,blank=False)
 
 class UserModel(AbstractUser):
     USERNAME_FIELD = 'username'
@@ -127,3 +135,22 @@ class IndividualWorkAnalysis(models.Model):
 
     def __str__(self):
         return self.username.first_name
+    
+class ReceiptData(models.Model):
+    receipt_id = models.CharField(max_length=50, unique=True, blank=True,null=True)
+    transcription_type = models.CharField(max_length=20,unique=False,blank=True)
+    banner_id = models.ForeignKey(BannerId,on_delete=models.SET_NULL, null=True)
+    item_type = models.CharField(max_length=20,choices=ITEM_TYPE_CHOICES)
+    qty = models.CharField(max_length=100, unique=False,blank=True,null=True)
+    rin = models.CharField(max_length=100,unique=True,blank=True, null=True)
+    price = models.CharField(max_length=20,unique=False,blank=True,null=True)
+    price_per_item = models.CharField(max_length=20,unique=False,blank=True,null=True)
+    total = models.CharField(max_length=20,unique=False,blank=True,null=True)
+    rejection_reason = models.CharField(max_length=20,unique=False,blank=True,null=True)
+    worker_id = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, null=True)
+    image = models.CharField(max_length=100, unique=False,blank=True,null=True)
+    inserted_on = models.DateField(auto_now_add=True)
+    uploaded_on = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.receipt_id
