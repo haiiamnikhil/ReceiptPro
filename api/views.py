@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
+import pandas as pd
 
 
 @csrf_exempt
@@ -123,3 +124,5 @@ def uploadFile(request):
         fileupload = UploadedDocument.objects.create(uploaded_by=request.user,doc_type=request.POST.get('doc_type'),files=request.FILES.get('file'))
         return JsonResponse({"success": True},status=200,safe=False)
               
+def workAssignView(request):
+    return render(request,"workassign.html")

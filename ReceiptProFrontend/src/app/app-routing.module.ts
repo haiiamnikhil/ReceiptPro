@@ -9,6 +9,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component';
 import { FileuploaderComponent } from './work/fileuploader/fileuploader.component';
 import { UploadComponent } from './work/fileuploader/upload/upload.component';
+import { WorkassignComponent } from './work/workassign/workassign.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path:'fileupload/upload',
     component:UploadComponent
+  },
+  {
+    path:'work/assign',
+    component:WorkassignComponent
   },
   {
     path:'user/dashboard',

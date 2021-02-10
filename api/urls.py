@@ -27,5 +27,7 @@ urlpatterns = [
     path('fileupload/upload',fileUploadForm,name = 'fileuploadform'),
     path('fileupload/upload/doc/',uploadFile,name = 'upload'),
     
+    path('work/assign/',workAssignView,name = 'workassignview'),
+
     path('logout/',logoutUser,name = 'logout')
 ]
