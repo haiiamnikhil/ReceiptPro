@@ -9,7 +9,7 @@ export class SidebarComponent{
   change:boolean = true;
   constructor() { }
 
-  sidebarToggle:boolean = false;
+  sidebarToggle:boolean = true;
 
   toogle(){
     this.sidebarToggle = !this.sidebarToggle;
