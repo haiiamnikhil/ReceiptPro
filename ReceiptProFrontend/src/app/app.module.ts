@@ -22,6 +22,9 @@ import { EmployeeprofileComponent } from './user/employeeprofile/employeeprofile
 import { FileuploaderComponent } from './work/fileuploader/fileuploader.component';
 import { UploadComponent } from './work/fileuploader/upload/upload.component';
 import { WorkassignComponent } from './work/workassign/workassign.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete'
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { WorkassignComponent } from './work/workassign/workassign.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    AutocompleteLibModule
   ],
   providers: [UserregisterService,ApiService,AuthenticationService,AdminGuard],
   bootstrap: [AppComponent]

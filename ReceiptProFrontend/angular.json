@@ -26,8 +26,7 @@
             "styles": [
               "src/styles.css",
               "src/sb-admin-2.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/fontawesome-free/css/all.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.js","node_modules/bootstrap/dist/js/bootstrap.js","src/js/sb-admin-2.min.js","node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },

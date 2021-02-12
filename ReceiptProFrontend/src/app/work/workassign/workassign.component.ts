@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-workassign',
@@ -6,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workassign.component.css']
 })
 export class WorkassignComponent implements OnInit {
-  presentvalue:number
+  presentvalue:number= 1
+  keyword = 'name'
+  data = [
+    {
+      id: 1,
+      name: 'Usa'
+    },
+    {
+      id: 2,
+      name: 'England'
+    }
+ ];
+  names: ['Nikhil','Pradeep']
   constructor() { }
 
   ngOnInit(): void {
